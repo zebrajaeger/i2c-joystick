@@ -60,6 +60,11 @@ void receiveEvent(int howMany)
 void setup()
 // -----------------------------------------------------------------------------
 {
+    // Joystick
+    // as fast as possible switch reference from Vcc (5V) to external
+    analogReference(EXTERNAL); // connect aref to 3.3V of joystick
+
+    // Serial port
     Serial.begin(115200);
 
     // LEDs
@@ -73,8 +78,6 @@ void setup()
     Serial.print("I²C-Address: 0x");
     Serial.println(I2C_ADDRESS, HEX);
 
-    // Joystick
-    analogReference(EXTERNAL); // connect aref to 3.3V of joystick
 
     // Timer
     loopCounter = 0;
